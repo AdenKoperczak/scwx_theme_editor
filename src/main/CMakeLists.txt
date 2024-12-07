@@ -16,7 +16,8 @@ install(TARGETS scwx_theme_editor DESTINATION ${CMAKE_INSTALL_BINDIR})
 qt_generate_deploy_app_script(TARGET scwx_theme_editor
                               OUTPUT_SCRIPT deploy_script
                               NO_TRANSLATIONS
-                              NO_UNSUPPORTED_PLATFORM_ERROR)
+                              NO_UNSUPPORTED_PLATFORM_ERROR
+                              PRE_EXCLUDE_REGEXES ".*qt6ct.*")
 
 install(SCRIPT ${deploy_script}
         COMPONENT scwx_theme_editor
