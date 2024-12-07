@@ -1,4 +1,4 @@
-project(qt6ct-common)
+project(common-qt6ct)
 
 #extract version from qt6ct.h
 file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/qt6ct.h"
@@ -24,7 +24,7 @@ set(app_SRCS
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../)
 
-add_library(qt6ct-common SHARED ${app_SRCS})
-set_target_properties(qt6ct-common PROPERTIES VERSION ${QT6CT_VERSION})
-target_link_libraries(qt6ct-common PRIVATE Qt6::Gui)
-install(TARGETS qt6ct-common DESTINATION ${CMAKE_INSTALL_BINDIR})
+add_library(common-qt6ct SHARED ${app_SRCS})
+set_target_properties(common-qt6ct PROPERTIES VERSION ${QT6CT_VERSION})
+target_link_libraries(common-qt6ct PRIVATE Qt6::Gui)
+install(TARGETS common-qt6ct DESTINATION ${CMAKE_INSTALL_BINDIR})

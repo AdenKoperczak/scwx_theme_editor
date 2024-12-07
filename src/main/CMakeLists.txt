@@ -8,7 +8,7 @@ set(app_SRCS
 )
 
 add_executable(scwx_theme_editor ${app_SRCS})
-target_link_libraries(scwx_theme_editor PRIVATE Qt6::Widgets Qt6::WidgetsPrivate qt6ct-common)
+target_link_libraries(scwx_theme_editor PRIVATE Qt6::Widgets Qt6::WidgetsPrivate common-qt6ct)
 
 
 install(TARGETS scwx_theme_editor DESTINATION ${CMAKE_INSTALL_BINDIR})
