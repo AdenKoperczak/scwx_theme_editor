@@ -19,6 +19,9 @@ qt_generate_deploy_app_script(TARGET scwx_theme_editor
                               NO_UNSUPPORTED_PLATFORM_ERROR
                               NO_COMPILER_RUNTIME)
 
+set_target_properties(scwx_theme_editor PROPERTIES WIN32_EXECUTABLE
+                      $<IF:$<CONFIG:Release>,TRUE,FALSE>)
+
 install(SCRIPT ${deploy_script}
         COMPONENT scwx_theme_editor
         DESTINATION ${CMAKE_INSTALL_BINDIR})

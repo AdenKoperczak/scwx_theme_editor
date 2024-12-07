@@ -16,3 +16,5 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets OPTIONAL_COMPONENTS LinguistTo
 
 add_link_options(-Wl,--no-undefined)
 add_subdirectory(src)
+install(FILES ACKNOWLEDGMENTS.md README.md
+        DESTINATION ${CMAKE_INSTALL_PREFIX})
