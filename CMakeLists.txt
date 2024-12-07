@@ -17,5 +17,5 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets OPTIONAL_COMPONENTS LinguistTo
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/qt6ct-common)
 
 add_link_options(-Wl,--no-undefined)
-add_subdirectory(src/main)
 add_subdirectory(src/qt6ct-common)
+add_subdirectory(src/main)
