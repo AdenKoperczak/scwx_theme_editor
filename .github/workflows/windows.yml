@@ -18,6 +18,9 @@ jobs:
         include:
           - name: Windows Build
             qt_version: 6.8.0
+            qt_arch_aqt: win64_msvc2022_64
+            qt_modules: ''
+            qt_tools: ''
             msvc_arch: x64
             msvc_version: 2022
     name: ${{ matrix.name }}
