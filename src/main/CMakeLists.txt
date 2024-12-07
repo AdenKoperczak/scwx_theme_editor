@@ -17,7 +17,7 @@ qt_generate_deploy_app_script(TARGET scwx_theme_editor
                               OUTPUT_SCRIPT deploy_script
                               NO_TRANSLATIONS
                               NO_UNSUPPORTED_PLATFORM_ERROR
-                              PRE_EXCLUDE_REGEXES ".*qt6ct.*")
+                              DEPLOY_TOOL_OPTIONS "--ignore-library-errors")
 
 install(SCRIPT ${deploy_script}
         COMPONENT scwx_theme_editor
