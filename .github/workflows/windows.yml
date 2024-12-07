@@ -61,7 +61,7 @@ jobs:
       shell: pwsh
       run: |
         cd build
-        cmake --install . --component scwx_theme_editor
+        cmake --install .
 
     - name: Upload Artifacts (Windows)
       uses: actions/upload-artifact@v4
