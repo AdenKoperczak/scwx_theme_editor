@@ -43,11 +43,7 @@
 #include <QStringList>
 #include <QPalette>
 
-#ifdef QT6CT_LIBRARY
-#define QT6CT_EXPORT Q_DECL_EXPORT
-#else
-#define QT6CT_EXPORT Q_DECL_IMPORT
-#endif
+#define QT6CT_EXPORT
 
 class QT6CT_EXPORT Qt6CT
 {
