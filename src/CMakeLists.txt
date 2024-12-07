@@ -5,11 +5,11 @@ set(app_SRCS
   mainwindow.cpp
   paletteeditdialog.cpp
   paletteeditdialog.ui
+  qt6ct.cpp
 )
 
 add_executable(scwx_theme_editor ${app_SRCS})
-target_link_libraries(scwx_theme_editor PRIVATE Qt6::Widgets Qt6::WidgetsPrivate common-qt6ct)
-
+target_link_libraries(scwx_theme_editor PRIVATE Qt6::Widgets Qt6::WidgetsPrivate)
 
 install(TARGETS scwx_theme_editor DESTINATION ${CMAKE_INSTALL_BINDIR})
 

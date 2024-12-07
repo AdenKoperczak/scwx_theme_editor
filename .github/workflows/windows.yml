@@ -54,7 +54,7 @@ jobs:
         cmake ../source/ `
           -G Ninja `
           -DCMAKE_BUILD_TYPE="Release" `
-          -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/scwx_theme_editor"
+          -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/install/scwx_theme_editor"
         ninja
 
     - name: Install
@@ -67,4 +67,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: scwx_theme_editor
-        path: ${{ github.workspace }}/scwx_theme_editor/
+        path: ${{ github.workspace }}/install/

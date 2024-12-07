@@ -76,7 +76,7 @@ void edit_file(QString file)
 }
 
 
-static const QString filter = QString("Ini File (*.ini);;All (*)");
+static const QString filter = QString("Theme File (*.conf);;All (*)");
 
 void MainWindow::on_file_open(void)
 {
