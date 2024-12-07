@@ -54,17 +54,13 @@ jobs:
         cmake ../source/ `
           -G Ninja `
           -DCMAKE_BUILD_TYPE="Release" `
-          -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/scwx_theme_editor" `
+          -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/scwx_theme_editor"
         ninja
 
     - name: Install
       shell: pwsh
       run: |
         cd build
-        ls
-        ls src
-        ls src/main
-        ls "D:/a/scwx_theme_editor/scwx_theme_editor/build/src/main/"
         cmake --install .
 
     - name: Upload Artifacts (Windows)
