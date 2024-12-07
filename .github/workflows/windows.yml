@@ -1,0 +1,67 @@
+
+name: CI
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+concurrency:
+  # Cancel in-progress jobs for the same pull request
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows Build
+            qt_version: 6.8.0
+            msvc_arch: x64
+            msvc_version: 2022
+    name: ${{ matrix.name }}
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: source
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: ${{ matrix.qt_version }}
+        arch: ${{ matrix.qt_arch_aqt }}
+        modules: ${{ matrix.qt_modules }}
+        tools: ${{ matrix.qt_tools }}
+
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: ${{ matrix.msvc_arch }}
+        vsversion: ${{ matrix.msvc_version }}
+
+    - name: Build
+      shell: pwsh
+      run: |
+        mkdir build
+        cd build
+        cmake ../source/ `
+          -G Ninja `
+          -DCMAKE_BUILD_TYPE="Release" `
+          -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/scwx_theme_editor" `
+        ninja
+
+    - name: Install
+      shell: pwsh
+      run: |
+        cd build
+        cmake --install . --component scwx_theme_editor
+
+    - name: Upload Artifacts (Windows)
+      uses: actions/upload-artifact@v4
+      with:
+        name: scwx_theme_editor
+        path: ${{ github.workspace }}/scwx_theme_editor/
